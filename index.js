@@ -1,15 +1,39 @@
 import { words } from './wordList.js'
 // import confetti from 'canvas-confetti'
-
+const userInput = document.getElementById('userInput');
+const submitButton = document.getElementById('submitButton');
 let resultEl = document.getElementById("result-el")
 let titleEl = document.getElementById("title-el")
-console.log("defined wordexists as blank in beginning of doc")
-
 let wordExists = 
-console.log("this is title element" + titleEl) 
-// const splitWordleListMini = words.slice(0,5)
 
-submitButton.addEventListener('click', wordleSearch);
+// 
+submitButton.disabled = true;
+
+userInput.addEventListener('input', function() {
+    // Enable submit button only if input length is exactly 5
+    submitButton.disabled = this.value.length !== 5;
+    document.getElementById('error-message').textContent = '';
+    errorMessageEl.textContent = '';
+
+});
+
+submitButton.addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent form submission
+    
+    if (userInput.value.length === 5) {
+        // Proceed with submission logic here
+        console.log('Submitting:', userInput.value);
+        wordleSearch();
+        userInput.value = ''
+        userInput.focus();
+        // Disable submit button again
+        submitButton.disabled = true;
+        // Your existing submission logic...
+    } else {
+        errorMessageEl.textContent = 'Please enter a 5-letter word.';
+    }
+});
+
 
 function wordleSearch() {
     console.log("made wordexists false in wordlesearch")
@@ -32,12 +56,15 @@ function wordleSearch() {
     updateText(wordExists)
 }
 
-function updateText(val) {
+function updateText(inWordle) {
     const inputEl = document.getElementById("userInput").value
     let word = inputEl.toLowerCase()
-    titleEl.textContent = `Has ${word} appeared in wordle?`
-    console.log("val of word exists in update text func: " + val)
-    if (val) {
+
+    titleEl.innerHTML = `Has <span class="shimmer">${word}</span> appeared in wordle?`
+
+    // titleEl.textContent = `Has ${<p class="shimmer">word</p>} appeared in wordle?`
+
+    if (inWordle) {
         console.log("ran word exists")
         resultEl.textContent = "Yes"
     }
@@ -49,7 +76,7 @@ function updateText(val) {
             spread:50,
             origin: {y:0.9},
             velocity: 3,
-            gravity: 0.8,
+            gravity: 0.7,
             ticks: 300
           
 

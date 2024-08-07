@@ -12,7 +12,8 @@
         <h3 class="title" id="title-el">Has _____ appeared in wordle?</h3>
         <h1 class="app-result" id="result-el"></h1>
         <div class="input-container">
-            <input class="inputEl" id="userInput" placeholder="Enter your word here..." required />
+            <div id="error-message" style="color: red;"></div>
+            <input class="inputEl" id="userInput" placeholder="Enter a 5-letter word..." maxlength="5" minlength="5" />
             <button class="submitBtn" id="submitButton">Submit</button>
             <p class="disclaimer">Updated as of 8/5/2024</p>
         </div>

@@ -22,6 +22,7 @@ html {
     padding: 5vh 5vw;
     /* height: 90vh; */
     box-sizing: border-box;
+    overflow-y: auto;
 
 }
 
@@ -29,21 +30,28 @@ html {
     display: flex;
     position: relative;
     flex-direction: column;
+    margin-top: auto;
+    padding-bottom: 5vh;
     /* bottom: 5px; */
     left: 0;
     right: 0;
     /* padding: 0 0 5vh; */
+    flex-shrink: 0;
+
 }
 
 .title {
-    font-size: 4vh;
+    font-size: 3vh;
     margin-top: 2vh;
+    margin-bottom: 2vh;
     font-weight: 600;
     text-align: left;
     padding: 0 15px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    flex-shrink: 0;
+
 
 }
 
@@ -54,9 +62,9 @@ html {
     text-align: center;
     font-family: inherit;
     border: none;
-    height: 8vh;
+    height: 7vh;
     /* height: 66px; */
-    border-radius: 4vh;
+    border-radius: 3.5vh;
     /* border-radius: 60px; */
     font-size: 2.5vh;
     /* font-size: 45px; */
@@ -90,9 +98,9 @@ html {
 
 .submitBtn {
     font-family: inherit;
-    height: 8vh;
+    height: 7vh;
     /* height: 66px; */
-    border-radius: 4vh;
+    border-radius: 3.5vh;
     /* border-radius: 60px; */
     border: none;
     text-align: center;
@@ -101,7 +109,7 @@ html {
     font-weight: 600;
     background-color: #0077B6 ;
     color:antiquewhite;
-    margin-top: 1vh;
+    margin-top: 2vh;
     width: 100%;
     box-sizing: border-box;
     max-width: 600px;
@@ -110,21 +118,22 @@ html {
 }
 
 .app-result {
-    font-size: 20vh;
+    font-size: 15vh;
     flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* font-size: 160px; */
     font-weight: 800;
-
+    margin: 0;
+    padding: 2vh 0;
+    text-align: center;
 }
 
 .disclaimer {
     margin-top: 1vh;
     /* margin: 0; */
     /* margin-top: 14px; */
-    font-size: 1.5vh;
+    font-size: 1.2vh;
     /* font-size: 10px; */
     text-align: center;
 }
@@ -163,3 +172,22 @@ html {
       font-size: 16px !important;
     }
   }
+
+  @media (max-height: 500px) {
+    .title {
+        font-size: 2.5vh;
+    }
+    .app-result {
+        font-size: 12vh;
+    }
+    .inputEl, .submitBtn {
+        height: 6vh;
+        font-size: 2vh;
+    }
+}
+
+@media (min-height: 700px) {
+    .app-result {
+        font-size: 20vh;
+    }
+}

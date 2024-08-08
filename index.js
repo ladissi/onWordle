@@ -26,6 +26,9 @@ submitButton.addEventListener('click', function(e) {
         wordleSearch();
         userInput.value = ''
         userInput.focus();
+        userInput.blur();
+        // Scroll to top to show result clearly
+        window.scrollTo(0, 0);
         // Disable submit button again
         submitButton.disabled = true;
         // Your existing submission logic...
